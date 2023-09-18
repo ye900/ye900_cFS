@@ -5,6 +5,10 @@ sudo apt install gcc
 sudo apt install cmake
 sudo apt install g++
 
+# 파일 생성
+mkdir ye900_src
+cd ye900_src
+
 # WiringPi install
 git clone https://github.com/WiringPi/WiringPi.git
 cd WiringPi
