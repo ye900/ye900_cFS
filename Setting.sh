@@ -32,4 +32,3 @@ make
 make install
 cd build/exe/cpu1/
 ./core-cpu1
-
