@@ -1,4 +1,4 @@
-# 기본 Setting
+# Init Setting
 sudo apt install git
 sudo apt install make
 sudo apt install gcc
