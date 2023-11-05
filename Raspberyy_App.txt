@@ -24,3 +24,8 @@
 ** 90행에 link_libraries(wiringPi m) 추가
    -> 새로운 library 추가시 해당 방법
 
+3. {cFS - sample_defs - 'cmake' file} 수정 (컴파일 옵션 추가)
+** add_compile_option ( )에서 컴파일 옵션 추가
+     -> 해당 프로젝트에서는 wiringPi를 사용하기 위하여 -lwiringPi 옵션 추가
+     -> -lm, -o 옵션도 추가
+
