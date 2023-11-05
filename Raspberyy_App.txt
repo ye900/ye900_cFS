@@ -1,0 +1,26 @@
+{} : 경로
+[] : 파일
+'' : 코드
+
+## 새 APP 생성
+1. {cFS - apps} 내의 [sample_app] 복사
+2. [sample_app 복사본]의 이름을 'rasp1_app'으로 변경
+3. [rasp1_app] 내부의 모든 'sample_app'에 대한 코드 및 파일 명을 'rasp1_app'로 변경
+    ( Ctrl+F를 사용하여 대,소문자 구분하여 변경 )
+
+   %% [sample_app]의 내장된 기본 library는 그대로 사용 예정으로 변경하지 않음
+
+
+
+## 라이브러리 추가 및 APP 실행 파일 변경 (새로 만든 APP이 sample_app과 같이 실행되도록 코드 변경)
+1. {cFS - sample_defs - cpu1_cfe_es_startup.scr} 수정
+** 3행의 'CFE_APP, sample_app,  SAMPLE_APP_Main,    SAMPLE_APP,   50,   16384, 0x0, 0;' 코드를 복사하여 바로 아래 추가
+** 복사하여 추가한 4행을 'CFE_APP, rasp1_app,  RASP1_APP_Main,    RASP1_APP,   50,   16384, 0x0, 0;'로 변경
+   -> sample_app(3행) 다음에 rasp1_app(4행)이 실행
+
+2. {cFS - sample_defs - target.cmake} 수정
+** 89행의 'list(APPEND MISSION_GLOBAL_APPLIST sample_app sample_lib )' () 안에 'rasp1_app'도 추가
+   -> 'list(APPEND MISSION_GLOBAL_APPLIST sample_app sample_lib rasp1_app )'
+** 90행에 link_libraries(wiringPi m) 추가
+   -> 새로운 library 추가시 해당 방법
+
